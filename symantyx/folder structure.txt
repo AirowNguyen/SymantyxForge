@@ -1,0 +1,32 @@
+symantyx_app/
+  app.py                      # main entrypoint
+  ui/
+    workbook.py               # Tkinter tabbed UI
+  engine/
+    symantyx_path_builder.py  # your existing substrate
+    backend.py                # hydration API
+    registry.py               # SQLite FTS registry
+    tabrs.py                  # TabRs engine
+    membrane.py               # membrane binding
+    hypertuple.py             # hypertuple model
+    ocr_operator.py           # OCR EssenceContainer module
+  library/
+    __init__.py
+    manager.py                # library manager
+    library_index.json
+  canvas/
+    host/
+      SymantyxCanvasHost.cs   # WebView2 host (C#)
+    web/
+      symantyx_canvas.html
+      CanvasRenderer.js
+      TabRsSearchPopup.js
+      HypertupleDetailPane.js
+      StylusInput.js
+  pivots/
+    sym_build.ps1
+    sym_hydrate.ps1
+    sym_canvas.ps1
+    sym_ocr.ps1
+  config/
+    symantyx.virtual_photic_machine.v3.yaml

@@ -1,0 +1,8 @@
+def hydrate(input_text: str, domain: str) -> list[Hypertuple]:
+    tokens = tokenize(input_text)
+    etymons = etymon_map(tokens)          # uses etymology.jsonl
+    concepts = resolve_concepts(etymons)
+    hypertuples = emit_hypertuples(concepts)
+    bound = bind_membrane(hypertuples, domain)
+    index_tabrs(bound)
+    return bound

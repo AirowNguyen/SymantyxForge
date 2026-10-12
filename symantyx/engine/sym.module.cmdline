@@ -1,0 +1,72 @@
+EssenceContainer:
+  id: sym.op.cmdline
+  domain: cmdline_operator
+  description: "Sovereign command-line operator with semantic metadata, membrane binding, and TabRs connectivity."
+
+  schema_version: "1.0.0"
+  schema_map:
+    operator: sym.op.cmdline
+    container: sym.module.cmdline
+    pipeline: cmd_hydrate
+    substrate: sym.substrate.v1
+
+  program:
+    name: "SurveyProvisioner"
+    version: "1.0"
+    executable: "operator.sh"
+    runtime:
+      language: "bash"
+      environment: "symantyx-engine"
+
+  action:
+    type: execute_cmd
+    parameters:
+      cmd_text: null
+      cmd_role: null
+      cmd_args: []
+      environment: null
+      semantic_tags: []
+    validation:
+      - "command must be provided"
+      - "environment must be resolvable"
+
+  target:
+    object_type: CommandOperator
+    locator:
+      scope: ["local", "remote", "substrate"]
+      path: null
+
+  path:
+    invocation_sequence:
+      - "cmdline: raw command"
+      - "operator: wrap"
+      - "shim: bind"
+      - "gateway: route"
+      - "registry: log"
+      - "query: resolve"
+      - "search: TabRs"
+      - "binding: membrane"
+      - "gateway: return"
+      - "shim: emit"
+      - "operator: write syn @var"
+    reproducibility_notes: "cmdline → operator → shim → gateway → registry → TabRs → membrane → shim → operator"
+
+  flags:
+    display_profile: operator
+    zoom_level: auto
+    mode: execution
+    tool_settings: {}
+
+  timers:
+    capture_timestamp: null
+    session_id: null
+
+  outputs:
+    cmd_stdout: null
+    cmd_stderr: null
+    operator_result: null
+
+  evidentiary_notes:
+    repeatability: "High — deterministic given identical environment."
+    limitations: "Environment differences may affect execution."
+    admissibility_support: "Semantic wrapping provides traceability."

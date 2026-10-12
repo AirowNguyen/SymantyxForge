@@ -1,0 +1,32 @@
+module:
+  name: symantyx.survey.auto_ingest
+  version: 1.0.0
+  description: >
+    Automatically converts new messages, documents, and events into survey items,
+    cross-exam hooks, and impeachment entries.
+
+triggers:
+  - appclose.new_message
+  - sms.new_message
+  - email.new_message
+  - document.new_upload
+  - event.timeline_update
+
+pipeline:
+  - detect_questions
+  - detect_contradictions
+  - detect_evasions
+  - detect_omissions
+  - detect_proxy_language
+  - generate_survey_item
+  - append_to_survey_registry
+  - append_to_cross_exam
+  - append_to_impeachment_matrix
+
+outputs:
+  - survey_item.json
+  - cross_exam_hook.json
+  - impeachment_entry.json
+
+registry:
+  path: C:/symantyx/survey/registry.json

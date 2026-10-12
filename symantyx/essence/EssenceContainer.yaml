@@ -1,0 +1,58 @@
+# Symantyx Essence Container
+# Priority 2 Debugging — Semantic Substrate
+
+Schema: EssenceContainer.v1.0
+BasedOn: Symantyx.Core.Genesis.GenesisSchema.v1.0
+Type: EssenceContainer
+
+Metadata:
+  Author: Airow
+  Version: 1.0
+  Purpose: >
+    Defines the semantic substrate for hypertuples, DSL operators,
+    membrane binding, and transformer layers.
+
+Structure:
+  ContainerID: "<auto>"
+  Domain: "<inherited>"
+  MembraneDomain: "<inherited>"
+  CreatedAt: "<timestamp>"
+  Tags:
+    - essence
+    - semantic-core
+
+  Packets:
+    - EssencePacket:
+        ID: "<auto>"
+        Type: "semantic-unit"
+        Fields:
+          word: "<string>"
+          root: "<string>"
+          origin: "<string>"
+          definition: "<string>"
+          tags: "<list>"
+        Provenance:
+          hydrated_from: "<text>"
+          etymology_source: "etymology.jsonl"
+          membrane_bound: "<domain>"
+          tabrs_forces: "<vector-list>"
+
+  Relationships:
+    - binds_to_membrane: true
+    - participates_in_tabrs: true
+    - visible_on_canvas: true
+    - accessible_via_dsl: true
+
+  Constraints:
+    - must_have_word: true
+    - must_have_definition: true
+    - must_have_origin: true
+    - must_have_root: true
+    - must_have_membrane_domain: true
+
+  Invariants:
+    - semantic_consistency: "word, root, origin must align"
+    - membrane_integrity: "domain must match membrane domain"
+    - tabrs_alignment: "forces must be computable"
+    - registry_serializable: true
+    - canvas_renderable: true

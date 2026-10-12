@@ -1,0 +1,6 @@
+CrossAgentAPI:
+  endpoints:
+    - name: null
+      input: null
+      output: null
+      reversible: true

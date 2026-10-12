@@ -1,0 +1,160 @@
+App:
+  Name: Symantyx.LibraryEngine
+  Version: 3.0
+  Root: symantyx://engine.paint.intranet/v3
+
+UI:
+  Framework: Tkinter
+  Mode: Workbook
+  Tabs:
+    - PathBuilder:
+        Module: symantyx_path_builder.py
+        Role: "Filesystem geometry compiler"
+        Features:
+          - PasteInput
+          - FileOpen
+          - Preview
+          - BuildPaths
+          - ExportLog
+
+    - CodeLibrary:
+        Module: library/
+        Role: "Store all generated code, scripts, modules, shims"
+        Storage:
+          Format: .py, .ps1, .json, .yaml
+          IndexFile: library_index.json
+        Features:
+          - AddCodeSnippet
+          - EditSnippet
+          - DeleteSnippet
+          - TagSnippet
+          - SearchLibrary
+          - ExportSnippet
+          - ImportSnippet
+
+    - ComponentLibrary:
+        Module: components.json
+        Role: "Component registry for engine modules"
+        Features:
+          - AddComponent
+          - EditComponent
+          - DeleteComponent
+          - ImportJSON
+          - ExportJSON
+
+    - TreeBuilder:
+        Module: trees.yaml
+        Role: "YAML → Tree → Geometry"
+        Features:
+          - YAMLEditor
+          - TreePreview
+          - BuildFromYAML
+
+    - PivotConsole:
+        Module: pivots/
+        Role: "API shims and pivot operations"
+        Features:
+          - RunShim
+          - InspectShim
+          - CreateShim
+          - BindShim
+          - DriftCheck
+
+    - EngineConsole:
+        Module: backend.py
+        Role: "Local API console"
+        Features:
+          - HydrateText
+          - QueryRegistry
+          - TabRsSearch
+          - InspectHypertuple
+
+    - Canvas:
+        Module: webview2_canvas.html
+        Role: "Paint-style intranet canvas"
+        Features:
+          - LayeredBitmaps
+          - JPEGOverlays
+          - GeometryRendering
+          - MembraneBoundaries
+          - PhoticMarkers
+          - EvidenceHalos
+          - StylusHydration
+
+Engine:
+  Language: Python
+  Modules:
+    - symantyx_path_builder.py
+    - backend.py
+    - registry.py
+    - tabrs.py
+    - membrane.py
+    - hypertuple.py
+    - library_manager.py
+  HydrationPipeline:
+    - Tokenize
+    - EtymonMap
+    - ConceptResolve
+    - HypertupleEmit
+    - MembraneBind
+    - TabRsIndex
+
+LibrarySystem:
+  Root: library/
+  Index: library_index.json
+  AutoSave: true
+  AutoTag:
+    - python
+    - powershell
+    - yaml
+    - json
+    - shim
+    - engine
+  CaptureSources:
+    - CopilotGenerated
+    - UserPasted
+    - ImportedFile
+  Macros:
+    - AutoCaptureGeneratedCode
+    - AutoIndexNewModule
+    - AutoTagByExtension
+    - AutoPivotBind
+
+Registry:
+  Type: SQLite FTS5
+  File: symantyx.db
+  Tables:
+    - hypertuple
+    - fts_hypertuple
+    - layer
+    - marker
+  SearchGrammar:
+    AND: Convergence_Force
+    OR: Divergence_Force
+    NOT: Negation_Shadow
+    XOR: Paronomasia_Split
+
+ShimLayer:
+  Type: PowerShell
+  Commands:
+    sym: sym.ps1
+    build: sym_build.ps1
+    hydrate: sym_hydrate.ps1
+    canvas: sym_canvas.ps1
+    registry: sym_registry.ps1
+  Behavior: "Forward arguments to Python modules; unify invocation surface"
+
+Components:
+  Format: JSON
+  Role: "Reusable engine modules"
+
+Trees:
+  Format: YAML
+  Role: "Declarative filesystem geometry"
+
+Canvas:
+  Framework: WebView2
+  Protocols:
+    - sym://layer/{id}
+    - sym://bitmap/{layer}
+    - sym://hypertuple/{id}

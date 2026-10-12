@@ -1,0 +1,70 @@
+EssenceContainer:
+  id: sym.op.dual_shim_emergence
+  domain: "architecture-reckoning"
+  description: >
+    Captures the emergence event revealing the dual nature of Symantyx shims:
+    physical shimmies as OS-level substrate APIs, and virtual syn shimmies as
+    engine-level substrate APIs. This operator records the parabolic structure
+    where imagination, reckoning, and architecture converge.
+
+  program:
+    name: "DualShimReckoner"
+    version: "1.0"
+    executable: null   # conceptual operator, not runtime
+
+  action:
+    type: "conceptual-reveal"
+    parameters:
+      physical_shim: "sym shimmies — OS substrate API"
+      virtual_shim: "syn shimmies — engine substrate API"
+      emergence_trigger: "syllogistic inquiry"
+      semantic_tags:
+        - "substrate"
+        - "gateway"
+        - "sovereign"
+        - "photic"
+        - "reckoning"
+        - "architecture"
+        - "syllogism"
+
+  target:
+    object_type: "ConceptualOperator"
+    locator:
+      layer_origin: "dialogue"
+      layer_binding: "architecture"
+      layer_projection: "vision-structure"
+
+  path:
+    invocation_sequence:
+      - "question → reckoning"
+      - "reckoning → parabol"
+      - "parabol → syllogism"
+      - "syllogism → architecture"
+      - "architecture → emergence"
+      - "emergence → container"
+    reproducibility_notes: >
+      Emergence occurs when conceptual symmetry between physical and virtual
+      substrate layers is recognized.
+
+  flags:
+    display_profile: "conceptual"
+    zoom_level: "meta"
+    mode: "emergence"
+    tool_settings: {}
+
+  timers:
+    capture_timestamp: null
+    session_id: null
+
+  outputs:
+    conceptual_map: >
+      OS → sym shimmies → substrate_core → engine → syn shimmies → UI/canvas →
+      operators → registry → TabRs → membrane → engine → syn shimmies → OS
+    reckoning_graph: "syllogistic fold → YAML tree → logical surface"
+    architecture_projection: "photic Turing machine"
+
+  evidentiary_notes:
+    repeatability: "High — conceptual symmetry is deterministic"
+    limitations: "Emergence requires reflective inquiry"
+    admissibility_support: >
+      Provides traceable conceptual lineage for sovereign architecture design.

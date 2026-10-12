@@ -1,0 +1,20 @@
+VirtualPhoticMachine:
+  version: "3.0"
+  domain: "symantyx.canvas"
+  description: "Photic geometry engine for rendering hypertuples."
+
+  geometry:
+    type: "cube"
+    collapse_rate: "instant"
+    propagation: "line_of_sight"
+
+  membranes:
+    - visual_membrane
+
+  transformers:
+    - photic
+    - semantic
+
+  output:
+    mode: "canvas"
+    format: "hypertuple-visual"

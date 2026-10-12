@@ -1,0 +1,11 @@
+{
+  "component": "SurveyViewer",
+  "source": "C:/symantyx/survey/registry.json",
+  "features": [
+    "list_surveys",
+    "view_question",
+    "view_response",
+    "cross_exam_preview",
+    "impeachment_preview"
+  ]
+}

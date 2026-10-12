@@ -1,0 +1,140 @@
+{
+  "Engine": {
+    "Name": "Symantyx.PaintIntranet.Engine",
+    "Version": "3.0",
+    "Root_URI": "symantyx://engine.paint.intranet/v3"
+  },
+  "Layers": {
+    "Substrate": {
+      "Module": "symantyx_path_builder.py",
+      "Type": "Python",
+      "Role": "Filesystem geometry compiler from raw indented trees",
+      "Inputs": ["RawTree", "YAML", "JSON", "Essence"],
+      "Outputs": ["Directories", "Files", "GeometryLog"],
+      "ShimCommands": ["sym build", "sym tree", "sym raw"]
+    },
+    "ShimLayer": {
+      "Type": "PowerShell",
+      "Commands": {
+        "sym": "sym.ps1",
+        "build_path": "build_path.ps1",
+        "hydrate": "sym_hydrate.ps1",
+        "canvas": "sym_canvas.ps1",
+        "registry": "sym_registry.ps1"
+      },
+      "RegistryFile": "symantyx-registry.json",
+      "Behavior": "Forward arguments to Python modules; unify invocation surface"
+    },
+    "HydrationEngine": {
+      "Module": "backend.py",
+      "Type": "Python FastAPI",
+      "Endpoints": {
+        "POST /hydrate": "Run HydrationRulesetV3 pipeline",
+        "POST /hypertuple": "Store hypertuple",
+        "GET /hypertuple/{id}": "Retrieve hypertuple",
+        "GET /layer/{id}": "Retrieve canvas layer",
+        "GET /search": "TabRs semantic search",
+        "POST /marker/{id}": "Add photic/evidence marker"
+      },
+      "Pipeline": [
+        "Tokenize",
+        "Etymon_Map",
+        "Concept_Resolve",
+        "Hypertuple_Emit",
+        "Membrane_Bind",
+        "Index_TabRs"
+      ]
+    },
+    "Registry": {
+      "Type": "SQLite FTS5",
+      "File": "symantyx.db",
+      "Tables": ["hypertuple", "fts_hypertuple", "layer", "marker"],
+      "SearchGrammar": {
+        "AND": "Convergence_Force",
+        "OR": "Divergence_Force",
+        "NOT": "Negation_Shadow",
+        "XOR": "Paronomasia_Split"
+      }
+    },
+    "Canvas": {
+      "Type": "WebView2",
+      "UI_Files": [
+        "symantyx_canvas.html",
+        "CanvasRenderer.js",
+        "TabRsSearchPopup.js",
+        "HypertupleDetailPane.js",
+        "StylusInput.js"
+      ],
+      "Features": [
+        "LayeredBitmaps",
+        "JPEGOverlays",
+        "GeometryRendering",
+        "MembraneBoundaries",
+        "PhoticMarkers",
+        "EvidenceHalos",
+        "StylusHydration"
+      ],
+      "Protocols": [
+        "sym://layer/{id}",
+        "sym://bitmap/{layer}",
+        "sym://hypertuple/{id}"
+      ]
+    }
+  },
+  "HypertupleSchema": {
+    "id": "string",
+    "subject": "string",
+    "predicate": "string",
+    "object": "string",
+    "domain": "string",
+    "source": {
+      "uri": "string",
+      "tab_id": "string",
+      "offset": {
+        "start_char": "int",
+        "end_char": "int"
+      }
+    },
+    "geometry": {
+      "layer_id": "string",
+      "type": "rect | poly | vector",
+      "coords": []
+    },
+    "membrane": {
+      "boundary_id": "string",
+      "tags": [],
+      "law": "string"
+    },
+    "links": {
+      "related": [],
+      "parent": "string",
+      "children": []
+    },
+    "tabrs_index": {
+      "terms": [],
+      "score": 0.0,
+      "forces": {
+        "AND": "Convergence_Force",
+        "OR": "Divergence_Force",
+        "NOT": "Negation_Shadow",
+        "XOR": "Paronomasia_Split"
+      }
+    },
+    "meta": {
+      "created_at": "datetime",
+      "engine_version": "string",
+      "hydration_rule": "string"
+    }
+  },
+  "LayerSchema": {
+    "id": "string",
+    "type": "paint | vector | hybrid",
+    "hypertuples": [],
+    "membrane_boundaries": [],
+    "clickable_regions": [],
+    "meta": {
+      "created_at": "datetime",
+      "engine_version": "string"
+    }
+  }
+}

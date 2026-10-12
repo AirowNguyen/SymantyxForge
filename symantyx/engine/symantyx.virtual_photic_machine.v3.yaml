@@ -1,0 +1,168 @@
+Engine:
+  Name: Symantyx.VirtualPhoticMachine
+  Version: 3.0
+  Principle: "Modules are sovereign; layers are emergent; TabRs connect without UI switching."
+
+UI:
+  Frameworks:
+    - Tkinter: "Workbook-style modular UI"
+    - WebView2: "Photic canvas, SPA, HTML5, static modular rendering"
+  Mode: "Layered Workbook"
+  Tabs:
+    - PathBuilder: symantyx_path_builder.py
+    - ComponentLibrary: components.json
+    - TreeBuilder: trees.yaml
+    - PivotConsole: pivots/
+    - EngineConsole: backend.py
+    - Canvas: webview2_canvas.html
+    - OCR: sym_ocr.py
+
+LayerModel:
+  Description: "Tabs are layers; TabRs connect layers without switching UI."
+  Layers:
+    - WorkbookLayer: "Tkinter tabs"
+    - CanvasLayer: "WebView2 photic rendering"
+    - RegistryLayer: "SQLite FTS5 semantic store"
+    - SubstrateLayer: "Python geometry compiler"
+    - MembraneLayer: "Hypertuple binding"
+    - EssenceLayer: "OCR, linguistic, forensic operators"
+  TabRs:
+    Role: "Cross-layer syllogistic connectors"
+    Behavior:
+      - "Connect layers without UI switching"
+      - "Resolve semantic forces (AND/OR/NOT/XOR)"
+      - "Bind membrane boundaries"
+      - "Index hypertuples"
+    Forces:
+      AND: Convergence_Force
+      OR: Divergence_Force
+      NOT: Negation_Shadow
+      XOR: Paronomasia_Split
+
+Modules:
+  SovereigntyPrinciple: "Modules have no dependencies, no children, no hierarchy."
+  Behavior: "Modules emerge, congregate, and entrain without mutating the host culture."
+  Types:
+    - SubstrateModule: symantyx_path_builder.py
+    - HydrationModule: backend.py
+    - RegistryModule: registry.py
+    - CanvasModule: webview2_canvas.html
+    - PivotModule: pivots/*.ps1
+    - ComponentModule: components.json
+    - EssenceModule: sym_ocr.py
+
+EssenceContainer:
+  id: sym.op.ocr
+  domain: optic-control-read
+  description: "OCR membrane operator converting images/scans into normalized text, unicode streams, and structural geometry for hydration."
+  schema_version: "1.0.0"
+
+  schema_map:
+    operator: sym.op.ocr
+    container: sym.module.ocr
+    pipeline: ocr_hydrate
+    substrate: sym.substrate.v1
+
+  program:
+    name: "Symantyx OCR Operator"
+    version: "1.0.0"
+    executable: "sym_ocr.py"
+    runtime:
+      language: "python"
+      version: "3.10"
+      environment: "symantyx-engine"
+
+  action:
+    type: "optic-control-read"
+    parameters:
+      language: "eng"
+      detect_orientation: true
+      preserve_layout: true
+      diacritic_normalization: "NFC"
+    validation:
+      - "image must exist"
+      - "format must be supported"
+      - "config must be valid"
+
+  target:
+    object_type: "image"
+    locator:
+      accepted_formats: ["png", "jpg", "jpeg", "tiff", "pdf"]
+      path: null
+
+  path:
+    invocation_sequence:
+      - "O: optic_extraction"
+      - "C: control_normalization"
+      - "R: rational_readout"
+      - "hydrate: seed_text → hypertuples"
+      - "membrane: bind_membrane"
+    execution_plan:
+      - "load image"
+      - "run OCR backend"
+      - "normalize unicode"
+      - "emit seed_text"
+      - "hydrate"
+      - "bind membrane"
+    reproducibility_notes: "Deterministic given identical input and configuration."
+
+  flags:
+    display_profile: "operator"
+    zoom_level: "auto"
+    mode: "membrane"
+    tool_settings:
+      unicode_mode: "NFC"
+      geometry_output: true
+
+  timers:
+    capture_timestamp: null
+    session_id: null
+
+  build_artifacts:
+    - "ocr.json"
+    - "ocr.yaml"
+    - "sym_ocr.py"
+    - "ocr.ps1"
+    - "ocr_flow.xlsx"
+    - "geometry_mesh"
+
+  build_sequence:
+    - "generate manifests"
+    - "generate python module"
+    - "generate shim"
+    - "generate geometry sheet"
+    - "register operator"
+
+  build_outputs:
+    normalized_text: null
+    unicode_stream: null
+    structural_map: null
+    seed_text: null
+    hypertuples: null
+    bound_membrane: null
+
+  engine_hooks:
+    hydrate: "sym.hydrate.from_ocr"
+    membrane: "sym.membrane.bind"
+    registry: "symantyx_tools.commands.ocr"
+    substrate: "sym.substrate.v1"
+
+  evidentiary_notes:
+    repeatability: "High — deterministic pipeline."
+    limitations: "Dependent on image quality, lighting, and glyph clarity."
+    admissibility_support: "Provides structural geometry, unicode provenance, and reproducible operator logs."
+
+LibrarySystem:
+  Root: library/
+  Index: library_index.json
+  AutoCapture: true
+  AutoTag: true
+  Behavior: "Capture all generated code, modules, shims, YAML, JSON, and store them as sovereign components."
+
+Macros:
+  Role: "UI interactions as semantic operators"
+  Examples:
+    - AutoBuildOnPaste
+    - AutoHydrateOnCanvasStroke
+    - AutoIndexOnRegistryInsert
+    - AutoPivotBind

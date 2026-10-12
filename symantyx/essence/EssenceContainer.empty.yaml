@@ -1,0 +1,38 @@
+EssenceContainer:
+  id: null
+  domain: null
+  description: null
+
+  program:
+    name: null
+    version: null
+    executable: null
+
+  action:
+    type: null
+    parameters: {}
+
+  target:
+    object_type: null
+    locator: {}
+
+  path:
+    invocation_sequence: []
+    reproducibility_notes: null
+
+  flags:
+    display_profile: null
+    zoom_level: null
+    mode: null
+    tool_settings: {}
+
+  timers:
+    capture_timestamp: null
+    session_id: null
+
+  outputs: {}
+
+  evidentiary_notes:
+    repeatability: null
+    limitations: null
+    admissibility_support: null

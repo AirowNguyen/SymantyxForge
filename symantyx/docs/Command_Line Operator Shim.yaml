@@ -1,0 +1,46 @@
+EssenceContainer:
+  id: null
+  domain: "cmdline_operator"
+  description: "Container for wrapping, surveying, and executing command-line actions with semantic metadata."
+
+  program:
+    name: "GatewayProvisioner"
+    version: "1.0"
+    executable: "operator.sh"
+
+  action:
+    type: "execute_cmd"
+    parameters:
+      cmd_text: null             # raw command or script
+      cmd_role: null             # installer | shim | wrapper | gateway | diagnostic
+      cmd_args: []               # arguments passed to the command
+      environment: null          # env vars, PATH, tool roots
+      semantic_tags: []          # tags describing purpose (networking, vpn, gateway, pihole)
+
+  target:
+    object_type: "CommandOperator"
+    locator: {}                  # where the operator applies (local, remote, substrate)
+
+  path:
+    invocation_sequence: []      # ordered list of commands
+    reproducibility_notes: "cmdline → operator → shim → gateway binding"
+
+  flags:
+    display_profile: "operator"
+    zoom_level: "auto"
+    mode: "execution"
+    tool_settings: {}
+
+  timers:
+    capture_timestamp: null
+    session_id: null
+
+  outputs:
+    cmd_stdout: null             # command output
+    cmd_stderr: null             # error output
+    operator_result: null        # final state after execution
+
+  evidentiary_notes:
+    repeatability: "commands produce stable operator states"
+    limitations: "environment differences may affect execution"
+    admissibility_support: "semantic wrapping provides traceability"

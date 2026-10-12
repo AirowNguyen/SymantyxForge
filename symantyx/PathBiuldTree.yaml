@@ -1,0 +1,71 @@
+PathBuildTree:
+  root: "sovereign/"
+  
+  assemblies:
+    - name: "sovereign.module"
+      path: "sovereign/module/"
+      purpose: "Self-governing assembly definition"
+      children:
+        - "SovereignModule.yaml"
+        - "Constitution.md"
+        - "Operators.md"
+
+    - name: "essence"
+      path: "sovereign/essence/"
+      purpose: "Essence definition and storage"
+      children:
+        - "EssenceContainer.yaml"
+        - "EssencePacket.yaml"
+        - "EssenceInvariants.md"
+
+    - name: "classbuild"
+      path: "sovereign/classbuild/"
+      purpose: "Concrete class definitions"
+      children:
+        - "EssencePacket.py"
+        - "TokenNode.py"
+        - "GeometryMap.py"
+
+    - name: "substrate_core"
+      path: "sovereign/substrate_core/"
+      purpose: "Core substrate engine"
+      children:
+        - "SubstrateCore.py"
+        - "EngineBind.py"
+        - "ContainerShim.py"
+
+    - name: "transformers_4d"
+      path: "sovereign/transformers_4d/"
+      purpose: "Photic–Phonetic–Semantic–Spectral transformer"
+      children:
+        - "PhoticTransformer.py"
+        - "PhoneticTransformer.py"
+        - "SemanticTransformer.py"
+        - "SpectralTransformer.py"
+        - "TransformerOperators.md"
+
+    - name: "api"
+      path: "sovereign/api/"
+      purpose: "Cross-agent API definitions"
+      children:
+        - "CrossAgentAPI.yaml"
+        - "Routes.md"
+        - "Bindings.md"
+
+    - name: "dsl"
+      path: "sovereign/dsl/"
+      purpose: "Symantyx DSL for essence storage"
+      children:
+        - "EssenceStorage.dsl"
+        - "CollapseOperators.dsl"
+        - "DSLGrammar.md"
+
+    - name: "docs"
+      path: "sovereign/docs/"
+      purpose: "Documentation for sovereign architecture"
+      children:
+        - "SovereignArchitecture.md"
+        - "EssenceTheory.md"
+        - "SubstrateCoreSpec.md"
+        - "4DTransformerCreators.md"
+        - "ReversibleCollapseTables.md"

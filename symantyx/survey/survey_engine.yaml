@@ -1,0 +1,23 @@
+module:
+  name: symantyx.survey_engine
+  version: 1.0
+  description: "Automatically converts new messages into survey items."
+  triggers:
+    - new_appclose_message
+    - new_text_message
+    - new_document_upload
+  actions:
+    - parse_new_content
+    - detect_questions
+    - detect_contradictions
+    - detect_evasions
+    - generate_survey_item
+    - append_to_cross_exam
+    - append_to_impeachment_packet
+  ui:
+    type: webview2
+    components:
+      - survey_list
+      - question_viewer
+      - cross_exam_builder
+      - impeachment_matrix

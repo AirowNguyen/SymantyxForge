@@ -1,0 +1,26 @@
+EssencePacket:
+  id: null
+  origin_module: null
+  domain: null
+  description: null
+
+  payload:
+    phonetic_waveform: null
+    photic_waveform: null
+    raw_signal_trace: null
+    ipa_token: null
+    token_node: null
+    cpv_vector: null
+    geometry_coord: null
+    hypertuple_seed: null
+    spectral_packet: null
+
+  invariants:
+    sovereign: true
+    reversible: true
+    domain_free: true
+
+  lineage:
+    created_at: null
+    created_by: null
+    transformations: []

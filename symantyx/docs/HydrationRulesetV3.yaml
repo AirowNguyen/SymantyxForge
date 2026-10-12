@@ -1,0 +1,24 @@
+HydrationRulesetV3:
+  version: "3.0"
+  description: "Unified hydration ruleset for Symantyx hypertuple generation."
+
+  stages:
+    - tokenize
+    - etymon_map
+    - concept_resolution
+    - hypertuple_emit
+    - membrane_bind
+
+  mediums:
+    photic:
+      collapse: "sharp"
+      resonance: "high_frequency"
+
+    acoustic:
+      collapse: "diffused"
+      resonance: "low_frequency"
+
+  invariants:
+    - "hydration MUST preserve semantic lineage"
+    - "hydration MUST remain reversible"
+    - "hydration MUST support diachronic semantics"

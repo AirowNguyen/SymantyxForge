@@ -1,0 +1,135 @@
+EssenceContainerV3:
+  Metadata:
+    Container_ID: symantyx.ec.v3
+    Version: 3.0
+    Author: Airow_V_Nguyen
+    Root_Prompt: "To Capitalize A Riddle, Each Word an Etymon and its Logic is its Roots."
+    Doctrine: "Syllogistic Universal Prompt for Domain Agnosticism"
+
+  Corpus:
+    Etymons:
+      Source: etymology.jsonl
+      Mode: "Fractal-Recursive"
+      Mapping: 
+        - Capitalized_Word -> Root_Etymon
+        - Root_Etymon -> Semantic_Concept
+        - Semantic_Concept -> Hypertuple
+
+    Semantic_Fields:
+      - Concept
+      - Predicate
+      - Object
+      - Geometry
+      - Temporal_Index
+      - Membrane_Boundary
+      - Certainty_Weight
+
+  Hypertuple_Registry:
+    Structure:
+      Hypertuple:
+        ID: auto
+        Subject: <concept>
+        Predicate: <relation>
+        Object: <target>
+        Geometry:
+          Type: polygon | rect | vector
+          Coordinates: []
+        Metadata:
+          Etymon: <root>
+          Source: <origin>
+          Layer: <canvas_layer>
+          TabRs_Index: <index_id>
+        Links:
+          - inbound: []
+          - outbound: []
+        Membrane:
+          Boundary: <bars>
+          Permeability: open | semi | sealed
+          Law: Hypertuple_Linking_Law_v1
+
+  TabRs_Engine:
+    Description: "Membrane.Engine.TabRS — Indexes all tabs, files, frames, and layers."
+    Indexing:
+      Mode: "Local-First"
+      Cache: "Ephemeral"
+      Cloud_Fetch: true
+      DOM_Rehydration: true
+    Operators:
+      Boolean:
+        AND: "Convergence_Force"
+        OR: "Divergence_Force"
+        NOT: "Negation_Shadow"
+        XOR: "Paronomasia_Split"
+      Search:
+        - keyword:title
+        - keyword:hostname
+        - keyword:mime
+        - keyword:file://
+    Bars:
+      Definition: "Boundary membranes enclosing tab content."
+      Types:
+        - Frame_Bar
+        - Canvas_Bar
+        - Semantic_Bar
+        - Hypertuple_Bar
+
+  Canvas_Layers:
+    Layer:
+      ID: auto
+      Type: paint | vector | hybrid
+      Hypertuples: []
+      Membrane_Boundaries: []
+      Clickable_Regions:
+        - region_id: auto
+          hypertuple_target: <hypertuple_id>
+
+  Intranet_Engine:
+    Description: "Paint-style semantic intranet engine."
+    Local_Server: true
+    Winget_Packages:
+      Mode: "Layer-Install"
+      Mapping:
+        Package -> Layer
+        Layer -> Hypertuple_Set
+    Extensibility:
+      Macro_VBA_Plugins: true
+      Plugin_Schema:
+        - Name
+        - Etymon_Root
+        - Behavior
+        - Membrane_Rules
+        - Hypertuple_Emissions
+
+  Membrane_Law:
+    Root_Codex_URI: symantyx://governance.symantyx.core/codex/hypertuple-linking-law/v1
+    Enforcement:
+      Immutable: true
+      Registry_Governed: true
+    Fields:
+      - Boundary_Definition
+      - Link_Propagation
+      - Semantic_Force
+      - Observer_Horizon
+
+  Photic_Geometry:
+    Hypertuple_Class:
+      Name: Hypertuple.PhoticMarker
+      Fields:
+        - Channel
+        - Frequency
+        - Geometry
+        - Semantic_Load
+        - Observer_Horizon
+    Map:
+      Channels: []
+      Geometry: []
+
+  Essence:
+    Hydration:
+      Mode: "Universal"
+      Input: any_text | any_tab | any_layer | any_document
+      Output: hypertuple_set
+    Rehydration:
+      Mode: "Canvas"
+      Output: layer_render
+

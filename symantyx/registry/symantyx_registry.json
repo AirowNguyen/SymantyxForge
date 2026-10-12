@@ -1,0 +1,56 @@
+{
+  "schemas": {
+    "universal_schema": {
+      "module": "schemas.universal_schema",
+      "class": "UniversalSchema"
+    },
+    "major_premise": {
+      "module": "schemas.major_premise",
+      "class": "MajorPremiseContainer"
+    }
+  },
+  "containers": {
+    "photic_container": {
+      "module": "substrate.photic",
+      "class": "PhoticEssenceContainer"
+    },
+    "acoustic_container": {
+      "module": "substrate.acoustic",
+      "class": "AcousticEssenceContainer"
+    }
+  },
+  "membranes": {
+    "visual_membrane": {
+      "module": "membranes.visual",
+      "class": "VisualMembrane"
+    },
+    "conversational_membrane": {
+      "module": "membranes.conversational",
+      "class": "ConversationalMembrane"
+    }
+  },
+  "gateways": {
+    "canvas.gateway": {
+      "module": "gateways.canvas",
+      "class": "CanvasGateway"
+    },
+    "messenger.gateway": {
+      "module": "gateways.messenger",
+      "class": "MessengerGateway"
+    }
+  },
+  "ports": {},
+  "paths": {
+    "default_path": {
+      "steps": [
+        "collapse",
+        "bind",
+        "transform_phonetic",
+        "transform_photic",
+        "transform_semantic",
+        "transform_spectral",
+        "emit"
+      ]
+    }
+  }
+}

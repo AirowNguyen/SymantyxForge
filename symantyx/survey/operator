@@ -1,0 +1,17 @@
+operator:
+  name: appclose_survey_ingest
+  version: 1.0
+  inputs:
+    - appclose_records
+  outputs:
+    - survey_items
+    - impeachment_hooks
+  pipeline:
+    - extract_questions
+    - classify_responses
+    - generate_survey_items
+    - attach_cross_exam_hooks
+    - score_impeachment_value
+  metadata:
+    source: "AppClose Certified + Uncertified Exports"
+    author: "Airow"

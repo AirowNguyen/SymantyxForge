@@ -1,0 +1,9 @@
+Canvas_Layers:
+  Layer:
+    ID: auto
+    Type: paint | vector | hybrid
+    Hypertuples: []
+    Membrane_Boundaries: []
+    Clickable_Regions:
+      - region_id: auto
+        hypertuple_target: <hypertuple_id>

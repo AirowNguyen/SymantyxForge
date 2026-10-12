@@ -1,0 +1,34 @@
+SurveySchema:
+  version: "1.0"
+  domain: "symantyx.survey"
+  description: "Unified schema for ingesting, parsing, and hydrating survey responses."
+
+  fields:
+    - name: respondent_id
+      type: string
+      required: true
+
+    - name: timestamp
+      type: datetime
+      required: true
+
+    - name: question_id
+      type: string
+      required: true
+
+    - name: response_text
+      type: string
+      required: true
+
+    - name: confidence_score
+      type: float
+      required: false
+
+  hydration:
+    collapse: "semantic"
+    membrane: "conversational"
+    medium: "acoustic"
+
+  output:
+    hypertuple: true
+    evidentiary_notes: true

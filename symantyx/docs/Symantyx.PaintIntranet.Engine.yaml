@@ -1,0 +1,17 @@
+PaintIntranetEngine:
+  version: "1.0"
+  domain: "symantyx.paint"
+  description: "Internal photic engine for rendering semantic strokes."
+
+  input:
+    stylus: true
+    pressure: true
+    tilt: true
+
+  hydration:
+    medium: "photic"
+    membrane: "visual"
+
+  output:
+    format: "stroke-hypertuple"
+    canvas: "webview2"

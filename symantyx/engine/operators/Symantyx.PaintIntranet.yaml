@@ -1,0 +1,146 @@
+App:
+  Name: Symantyx.PaintIntranet
+  Version: 3.0
+  Root: symantyx://engine.paint.intranet/v3
+
+UI:
+  Framework: Tkinter
+  Mode: Workbook
+  Tabs:
+    - PathBuilder:
+        Module: symantyx_path_builder.py
+        Role: "Filesystem geometry compiler"
+        Inputs:
+          - RawTree
+          - YAML
+          - JSON
+          - Essence
+        Outputs:
+          - Directories
+          - Files
+          - GeometryLog
+        Features:
+          - PasteInput
+          - FileOpen
+          - Preview
+          - BuildPaths
+          - ExportLog
+    - ComponentLibrary:
+        Module: components.json
+        Role: "Component registry for engine modules"
+        Features:
+          - AddComponent
+          - EditComponent
+          - DeleteComponent
+          - ImportJSON
+          - ExportJSON
+    - TreeBuilder:
+        Module: trees.yaml
+        Role: "YAML → Tree → Geometry"
+        Features:
+          - YAMLEditor
+          - TreePreview
+          - BuildFromYAML
+    - EngineConsole:
+        Module: backend.py
+        Role: "Local API console"
+        Features:
+          - HydrateText
+          - QueryRegistry
+          - TabRsSearch
+          - InspectHypertuple
+    - Canvas:
+        Module: webview2_canvas.html
+        Role: "Paint-style intranet canvas"
+        Features:
+          - LayeredBitmaps
+          - JPEGOverlays
+          - GeometryRendering
+          - MembraneBoundaries
+          - PhoticMarkers
+          - EvidenceHalos
+          - StylusHydration
+
+Engine:
+  Language: Python
+  Modules:
+    - symantyx_path_builder.py
+    - backend.py
+    - registry.py
+    - tabrs.py
+    - membrane.py
+    - hypertuple.py
+  HydrationPipeline:
+    - Tokenize
+    - EtymonMap
+    - ConceptResolve
+    - HypertupleEmit
+    - MembraneBind
+    - TabRsIndex
+
+Registry:
+  Type: SQLite FTS5
+  File: symantyx.db
+  Tables:
+    - hypertuple
+    - fts_hypertuple
+    - layer
+    - marker
+  SearchGrammar:
+    AND: Convergence_Force
+    OR: Divergence_Force
+    NOT: Negation_Shadow
+    XOR: Paronomasia_Split
+
+ShimLayer:
+  Type: PowerShell
+  Commands:
+    sym: sym.ps1
+    build: sym_build.ps1
+    hydrate: sym_hydrate.ps1
+    canvas: sym_canvas.ps1
+    registry: sym_registry.ps1
+  Behavior: "Forward arguments to Python modules; unify invocation surface"
+
+Macros:
+  Type: Python
+  Role: "UI interaction layer"
+  Examples:
+    - AutoBuildOnPaste
+    - AutoPreviewOnYAMLChange
+    - AutoHydrateOnCanvasStroke
+    - AutoIndexOnRegistryInsert
+
+Components:
+  Format: JSON
+  Role: "Reusable engine modules"
+  Example:
+    Component:
+      Name: HypertupleEmitter
+      Type: EngineModule
+      Inputs: [Concepts]
+      Outputs: [Hypertuples]
+      Version: 1.0
+
+Trees:
+  Format: YAML
+  Role: "Declarative filesystem geometry"
+  Example:
+    root:
+      docs:
+        - intro.md
+        - guide.md
+      src:
+        - main.py
+
+Canvas:
+  Framework: WebView2
+  Rendering:
+    - CanvasRenderer.js
+    - TabRsSearchPopup.js
+    - HypertupleDetailPane.js
+    - StylusInput.js
+  Protocols:
+    - sym://layer/{id}
+    - sym://bitmap/{layer}
+    - sym://hypertuple/{id}

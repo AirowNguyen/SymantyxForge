@@ -1,0 +1,5 @@
+essence.store <packet>
+essence.retrieve <id>
+transform.crossfold <packet>
+collapse.reversible <hypertuple>
+emit.spectral <packet>

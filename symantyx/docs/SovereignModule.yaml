@@ -1,0 +1,22 @@
+SovereignModule:
+  name: null
+  version: "1.0.0"
+
+  sovereignty:
+    self_governing: true
+    internal_law: null
+    voluntary_participation: true
+    dependencies: []
+    global_interaction: "opt-in"
+
+  constitution:
+    essence_required: true
+    collapse_rules: null
+    reversible_domain: true
+    operators: []
+
+  structure_tree:
+    root: null
+    assemblies: []
+    interfaces: []
+    documents: []
