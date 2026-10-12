@@ -1,0 +1,17 @@
+{
+  "symantyx_tools": {
+    "root": "%USERPROFILE%\\tools",
+    "commands": {
+      "sym": {
+        "path": "sym.ps1",
+        "type": "shim",
+        "description": "Universal wrapper shim for Symantyx tools"
+      },
+      "build_path": {
+        "path": "build_path.ps1",
+        "type": "engine",
+        "description": "Universal Path Builder"
+      }
+    }
+  }
+}

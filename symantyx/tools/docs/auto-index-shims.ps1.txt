@@ -1,0 +1,30 @@
+param(
+    [string]$ToolsRoot = "$HOME\symantyx-tools"
+)
+
+if (-not (Test-Path $ToolsRoot)) {
+    Write-Host "Tools root not found: $ToolsRoot"
+    exit 1
+}
+
+$profile = $PROFILE
+if (-not (Test-Path $profile)) {
+    New-Item -ItemType File -Force -Path $profile | Out-Null
+}
+
+$existing = Get-Content $profile -Raw
+
+Get-ChildItem -Path $ToolsRoot -Filter "*.ps1" | ForEach-Object {
+    $name = $_.BaseName
+    $path = $_.FullName
+    $aliasLine = "Set-Alias $name `"$path`""
+
+    if ($existing -notmatch "Set-Alias $name") {
+        Add-Content -Path $profile -Value "`n$aliasLine`n"
+        Write-Host "Indexed script as alias: $name -> $path"
+    } else {
+        Write-Host "Alias already exists for: $name"
+    }
+}
+
+Write-Host "Auto-index complete. Restart PowerShell to load new aliases."
